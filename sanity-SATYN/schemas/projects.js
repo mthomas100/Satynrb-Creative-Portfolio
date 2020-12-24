@@ -49,25 +49,10 @@ export default {
       },
     },
     {
-      name: 'video',
-      title: 'Video',
-      type: 'video',
-    },
-    {
       name: 'videoURL',
-      description: "A valid URL begins with https://",
+      description: "A valid URL follows the format: https://www.youtube.com/embed/YHusujC8MOw",
       title: 'Video Link from Youtube',
       type: 'url',
-      validation: Rule => Rule.custom(input => {
-        if (typeof input === 'undefined') {
-          return true // Allow undefined values
-        }
-        if (!input.startsWith('https://')) {
-          return 'The URL must begin with https://'
-        }
-        
-        return true
-      }),
     },
     {
       name: 'image_Gallery',

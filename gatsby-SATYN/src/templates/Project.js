@@ -46,7 +46,7 @@ export default function ProjectTemplate({ data: { project } }) {
       <ProjectStyles>
         <div className="projectWrapper">
           <ProjectInformation project={project} />
-          {project?.video?.asset && <Video project={project} />}
+          {project?.videoURL && <Video project={project} />}
           {imageGallery && (
             <ProjectGridStyles>
               {imageGallery.map((image) => (
