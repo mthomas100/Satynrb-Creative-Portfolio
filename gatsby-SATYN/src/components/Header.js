@@ -56,7 +56,7 @@ export default function Header() {
             <Nav className="mr-auto" />
             <Nav as="ul" className="ml-auto">
               <Nav.Item as="li">
-                <HeaderLink name="work" />
+                <HeaderLink name="work" linkOverride="" />
                 <HeaderLink name="about" />
                 <HeaderLink name="reach" />
               </Nav.Item>

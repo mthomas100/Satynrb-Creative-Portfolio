@@ -12,10 +12,15 @@ const HeaderLinkStyles = styled.div`
   }
 `;
 
-export default function HeaderLink({ name }) {
+export default function HeaderLink({ name, linkOverride }) {
+  console.log({ linkOverride });
   return (
     <HeaderLinkStyles className="header-link">
-      <Link to={`/${name}`} className="nav-link" activeClassName="active">
+      <Link
+        to={`/${typeof linkOverride !== 'undefined' ? linkOverride : name}`}
+        className="nav-link"
+        activeClassName="active"
+      >
         <span>{name}</span>
       </Link>
     </HeaderLinkStyles>
