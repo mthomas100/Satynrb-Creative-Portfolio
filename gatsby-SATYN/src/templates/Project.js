@@ -11,7 +11,7 @@ const ProjectStyles = styled.div`
 
   .projectWrapper {
     margin: 2em auto 0 auto;
-    width: 800px;
+    max-width: 800px;
   }
 
   hr {
@@ -35,6 +35,9 @@ const ProjectGridStyles = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
   @media (max-width: 800px) {
+    grid-template-columns: repeat(auto-fill, 100vw);
+  }
+  @media (max-width: 450px) {
     grid-template-columns: repeat(auto-fill, 100vw);
   }
 `;
