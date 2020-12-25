@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const HeaderLinkStyles = styled.div`
   span {
-    color: var(--darkBlue);
+    color: var(--blue);
     font-family: Montserrat;
     font-weight: bold;
     font-size: 1em;

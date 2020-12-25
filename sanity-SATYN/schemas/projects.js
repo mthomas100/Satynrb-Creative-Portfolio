@@ -50,8 +50,8 @@ export default {
     },
     {
       name: 'videoURL',
-      description: "A valid URL follows the format: https://www.youtube.com/embed/YHusujC8MOw",
-      title: 'Video Link from Youtube',
+      description: "Valid youtube format: https://www.youtube.com/embed/YHusujC8MOw.  Valid vimeo format: https://player.vimeo.com/video/360663584",
+      title: 'Video Link from Youtube or Vimeo',
       type: 'url',
     },
     {
