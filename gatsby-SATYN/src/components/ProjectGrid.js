@@ -14,6 +14,10 @@ const CardGridStyles = styled.div`
     padding-top: 100%; /* 1:1 Aspect Ratio */
     position: relative;
   }
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(auto-fill, 100vw);
+  }
 `;
 
 const CardStyles = styled.div`
