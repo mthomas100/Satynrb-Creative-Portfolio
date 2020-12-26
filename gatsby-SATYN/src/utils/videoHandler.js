@@ -10,7 +10,7 @@ function getVimeoId(url) {
   const regExp = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
   const match = url.match(regExp);
 
-  return match && match[5].length === 8 ? match[5] : null;
+  return match ? match[5] : null;
 }
 
 export default function videoHandler(url) {
