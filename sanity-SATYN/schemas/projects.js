@@ -51,7 +51,7 @@ export default {
     {
       name: 'videoURL',
       title: 'Video Link from Youtube or Vimeo',
-      type: 'url',
+      type: 'video',
     },
     {
       name: 'image_Gallery',
