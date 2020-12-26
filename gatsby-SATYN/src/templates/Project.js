@@ -80,13 +80,6 @@ export const query = graphql`
           }
         }
       }
-      video {
-        caption
-        asset {
-          url
-          id
-        }
-      }
       videoURL
       image_Gallery {
         asset {
