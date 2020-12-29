@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Img from 'gatsby-image';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
@@ -10,7 +10,7 @@ const SingleProjectStyles = styled.div`
 `;
 
 const transitionEnter = { duration: 1.3, ease: [0.0, 0.2, 0.4, 0.6] };
-const transitionExit = { duration: 0.15, ease: [0.8, 0.9, 1, 1.0] };
+const transitionExit = { duration: 0.3, ease: [0.8, 0.9, 1, 1.0] };
 
 const frameVariants = {
   hover: { scale: 1.05 },
@@ -18,6 +18,7 @@ const frameVariants = {
 };
 
 export default function SingleProject({ image }) {
+  const [isToggled, setToggle] = useState(false);
   return (
     <SingleProjectStyles>
       <div className="imageContainer" id={image._id}>

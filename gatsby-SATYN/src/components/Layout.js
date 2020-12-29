@@ -35,7 +35,9 @@ export default function Layout({ children }) {
         <ContentStyles>
           <Header />
           {children}
-          {/* <Footer /> */}
+          <div>
+            <Footer />
+          </div>
         </ContentStyles>
       </SiteBorderStyles>
     </>
