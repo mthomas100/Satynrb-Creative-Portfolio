@@ -1,13 +1,12 @@
 import React from 'react';
 import '../styles/global.css';
-import { Link } from 'gatsby';
 import {
   AiFillFacebook as Facebook,
   AiFillLinkedin as LinkedIn,
   AiOutlineTwitter as Twitter,
   AiFillYoutube as Youtube,
   AiFillInstagram as Instagram,
-} from 'react-icons/Ai';
+} from 'react-icons/ai';
 import styled from 'styled-components';
 
 const CreditStyles = styled.div`
