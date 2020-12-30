@@ -52,6 +52,7 @@ export default function SingleProject({ project }) {
 
   useEffect(() => {
     function handleResize() {
+      console.log('client width', myRef.current.clientWidth);
       setWidth(myRef.current.clientWidth);
     }
 
