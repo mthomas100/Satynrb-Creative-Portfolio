@@ -2,16 +2,11 @@ import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
-import useEventListener from '../utils/useEventListener';
 
 export default function SingleProject({ project }) {
   const myRef = useRef(null);
 
   const [width, setWidth] = useState(null);
-
-  function handleResize() {
-    setWidth(myRef.current.clientWidth);
-  }
 
   const ProjectDetailsStyles = styled.div`
     width: 100%;
@@ -55,20 +50,17 @@ export default function SingleProject({ project }) {
     }
   `;
 
-  // useEventListener('load', handleResize);
-  // useEventListener('resize', handleResize);
-
   useEffect(() => {
-    setWidth(myRef.current.clientWidth);
-    window.addEventListener('load', () => {
+    function handleResize() {
       setWidth(myRef.current.clientWidth);
-    });
-    window.addEventListener('resize', () => {
-      setWidth(myRef.current.clientWidth);
-    });
+    }
+
+    window.addEventListener('load', handleResize);
+    window.addEventListener('resize', handleResize);
+
     return () => {
-      window.removeEventListener('resize', () => {});
-      window.removeEventListener('load', () => {});
+      window.removeEventListener('load', handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
