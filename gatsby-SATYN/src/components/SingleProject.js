@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 export default function SingleProject({ project }) {
   const myRef = useRef(null);
 
-  const [width, setWidth] = useState(null);
+  const [width, setWidth] = useState(500);
 
   const ProjectDetailsStyles = styled.div`
     width: 100%;
