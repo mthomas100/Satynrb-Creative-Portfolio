@@ -57,6 +57,11 @@ export default function SingleProject({ project }) {
 
   useEventListener('load', handleResize);
   useEventListener('resize', handleResize);
+
+  if (typeof window === `undefined`) {
+    return <></>;
+  }
+
   return (
     <>
       <CardStyles key={project.id} ref={myRef}>
