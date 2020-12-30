@@ -23,12 +23,12 @@ export default function SingleProject({ project }) {
     backdrop-filter: blur(4px);
     padding: 0 2em;
     .title {
-      font-size: calc(${width / 300}em);
+      /* font-size: calc(${width / 300}em); */
       font-weight: 600;
       letter-spacing: 3px;
     }
     .subtitle {
-      font-size: calc(${width / 450}em);
+      /* font-size: calc(${width / 450}em); */
       letter-spacing: 3px;
       font-weight: 400;
     }
@@ -70,8 +70,18 @@ export default function SingleProject({ project }) {
       <CardStyles key={project.id} ref={myRef}>
         <Link to={`/project/${project.slug.current}`} className="nav-link">
           <ProjectDetailsStyles>
-            <div className="title">{project.name}</div>
-            <div className="subtitle">{project.subtitle}</div>
+            <div
+              className="title"
+              style={{ fontSize: `calc(${width / 300}em)` }}
+            >
+              {project.name}
+            </div>
+            <div
+              className="subtitle"
+              style={{ fontSize: `calc(${width / 450}em)` }}
+            >
+              {project.subtitle}
+            </div>
           </ProjectDetailsStyles>
           <Img
             fluid={project.coverPhoto.asset.fixed}
