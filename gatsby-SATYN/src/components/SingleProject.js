@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
@@ -55,12 +55,22 @@ export default function SingleProject({ project }) {
     }
   `;
 
-  useEventListener('load', handleResize);
-  useEventListener('resize', handleResize);
+  // useEventListener('load', handleResize);
+  // useEventListener('resize', handleResize);
 
-  if (typeof window === `undefined`) {
-    return <></>;
-  }
+  useEffect(() => {
+    setWidth(myRef.current.clientWidth);
+    window.addEventListener('load', () => {
+      setWidth(myRef.current.clientWidth);
+    });
+    window.addEventListener('resize', () => {
+      setWidth(myRef.current.clientWidth);
+    });
+    return () => {
+      window.removeEventListener('resize', () => {});
+      window.removeEventListener('load', () => {});
+    };
+  }, []);
 
   return (
     <>
