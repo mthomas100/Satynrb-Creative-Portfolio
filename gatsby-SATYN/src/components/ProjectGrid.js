@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
-import { Link } from 'gatsby';
+import SingleProject from './SingleProject';
 
 const CardGridStyles = styled.div`
   display: grid;
@@ -18,32 +17,27 @@ const CardGridStyles = styled.div`
   @media (max-width: 500px) {
     grid-template-columns: repeat(auto-fill, 100vw);
   }
-`;
 
-const CardStyles = styled.div`
-  a {
-    padding: 0;
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(auto-fill, 100vw);
   }
 `;
 
 export default function HomePage({ projects }) {
   return (
     <>
-      <CardGridStyles>
-        {projects.map((project) => (
-          <CardStyles id={project.id}>
-            <Link to={`/project/${project.slug.current}`} className="nav-link">
-              <div className="imageWrapper">
-                <Img
-                  fluid={project.coverPhoto.asset.fixed}
-                  alt={project.name}
-                  class="imageCard"
-                />
-              </div>
-            </Link>
-          </CardStyles>
-        ))}
-      </CardGridStyles>
+      <div className="cardGridWrapper">
+        <CardGridStyles>
+          {projects.map((project) => (
+            <div className="projectWrapper">
+              <SingleProject key={project.id} project={project} />
+            </div>
+          ))}
+        </CardGridStyles>
+      </div>
     </>
   );
 }

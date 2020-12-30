@@ -1,5 +1,5 @@
 {
-  "name": "slicks-slices-frontend",
+  "name": "satynrb-frontend",
   "private": true,
   "description": "SatynRB",
   "version": "0.1.0",
@@ -80,6 +80,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wesbos/slicks-slices"
+    "url": "https://github.com/mthomas100/satynrb"
   }
 }

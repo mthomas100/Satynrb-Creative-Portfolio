@@ -1,19 +1,17 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import SingleProject from '../components/SingleProject';
+import ProjectPicture from '../components/ProjectPicture';
 import ProjectInformation from '../components/ProjectInformation';
 import Video from '../components/Video';
 
 const ProjectStyles = styled.div`
   text-align: center;
   max-width: 100vw;
-
   .projectWrapper {
     margin: 2em auto 0 auto;
     max-width: 800px;
   }
-
   hr {
     display: block;
     height: 1px;
@@ -22,7 +20,6 @@ const ProjectStyles = styled.div`
     margin: 1em 0;
     padding: 0;
     width: 100%;
-
     @media (max-width: 800px) {
       width: 100vw;
     }
@@ -33,7 +30,6 @@ const ProjectGridStyles = styled.div`
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-
   @media (max-width: 800px) {
     grid-template-columns: repeat(auto-fill, 100vw);
   }
@@ -53,7 +49,7 @@ export default function ProjectTemplate({ data: { project } }) {
           {imageGallery && (
             <ProjectGridStyles>
               {imageGallery.map((image) => (
-                <SingleProject image={image} />
+                <ProjectPicture image={image} />
               ))}
             </ProjectGridStyles>
           )}

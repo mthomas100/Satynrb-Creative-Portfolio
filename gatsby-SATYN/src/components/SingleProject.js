@@ -1,37 +1,77 @@
-import React, { useState } from 'react';
-import Img from 'gatsby-image';
-import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
+import { Link } from 'gatsby';
+import useEventListener from '../utils/useEventListener';
 
-const SingleProjectStyles = styled.div`
-  .imageContainer {
-    overflow: hidden;
+export default function SingleProject({ project }) {
+  const myRef = useRef(null);
+
+  const [width, setWidth] = useState(null);
+
+  function handleResize() {
+    setWidth(myRef.current.clientWidth);
   }
-`;
 
-const transitionEnter = { duration: 1.3, ease: [0.0, 0.2, 0.4, 0.6] };
-const transitionExit = { duration: 0.3, ease: [0.8, 0.9, 1, 1.0] };
+  const ProjectDetailsStyles = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    padding: 0 2em;
+    .title {
+      font-size: calc(${width / 300}em);
+      font-weight: 600;
+      letter-spacing: 3px;
+    }
+    .subtitle {
+      font-size: calc(${width / 450}em);
+      letter-spacing: 3px;
+      font-weight: 400;
+    }
+  `;
 
-const frameVariants = {
-  hover: { scale: 1.05 },
-  tap: { scale: 0.95, transition: { duration: 0.25, ...transitionExit } },
-};
+  const CardStyles = styled.div`
+    position: relative;
+    a {
+      padding: 0;
+    }
+    .gatsby-image-wrapper {
+      width: 100%;
+      padding-top: 100%; /* 1:1 Aspect Ratio */
+      /* position: relative; */
+      z-index: 1;
+    }
+    &:hover ${ProjectDetailsStyles} {
+      display: flex;
+    }
+  `;
 
-export default function SingleProject({ image }) {
-  const [isToggled, setToggle] = useState(false);
+  useEventListener('load', handleResize);
+  useEventListener('resize', handleResize);
   return (
-    <SingleProjectStyles>
-      <div className="imageContainer" id={image._id}>
-        <motion.div
-          className="frame"
-          whileHover="hover"
-          whileTap="tap"
-          variants={frameVariants}
-          transition={transitionEnter}
-        >
-          <Img fluid={image.asset.fluid} />
-        </motion.div>
-      </div>
-    </SingleProjectStyles>
+    <>
+      <CardStyles key={project.id} ref={myRef}>
+        <Link to={`/project/${project.slug.current}`} className="nav-link">
+          <ProjectDetailsStyles>
+            <div className="title">{project.name}</div>
+            <div className="subtitle">{project.subtitle}</div>
+          </ProjectDetailsStyles>
+          <Img
+            fluid={project.coverPhoto.asset.fixed}
+            alt={project.name}
+            class="projectImage"
+          />
+        </Link>
+      </CardStyles>
+    </>
   );
 }
