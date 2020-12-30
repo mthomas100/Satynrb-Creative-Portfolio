@@ -33,7 +33,9 @@ export default function HomePage({ projects }) {
         <CardGridStyles>
           {projects.map((project) => (
             <div className="projectWrapper">
-              <SingleProject key={project.id} project={project} />
+              {typeof window !== `undefined` && (
+                <SingleProject key={project.id} project={project} />
+              )}
             </div>
           ))}
         </CardGridStyles>
