@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ResponsiveEmbed from 'react-responsive-embed';
 import videoHandler from '../utils/videoHandler';
 
-export default function Video({ project }) {
+export default function Video({ videoURL }) {
   return (
     <>
-      <ResponsiveEmbed src={videoHandler(project.videoURL)} allowfullscreen />
       <hr />
+      <ResponsiveEmbed src={videoHandler(videoURL)} allowfullscreen />
     </>
   );
 }

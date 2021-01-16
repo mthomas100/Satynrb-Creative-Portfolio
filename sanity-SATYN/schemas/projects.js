@@ -21,7 +21,6 @@ export default {
       title: 'Project Subtitle',
       type: 'string',
       description: "Supplemental project details [This field's data will appear on: the works page, the individual project page]",
-      validation: Rule => Rule.required().error('A project subtitle is required'),
     },
     {
       name: 'coverPhoto',

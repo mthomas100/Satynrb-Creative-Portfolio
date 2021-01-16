@@ -8,7 +8,7 @@ const ProjectInformationStyles = styled.div`
     grid-template-rows: auto;
     grid-template-areas: 'title' 'description';
     text-align: left;
-    grid-gap: 2em;
+    grid-column-gap: 2em;
     max-width: 100vw;
 
     @media (max-width: 1050px) {
@@ -67,7 +67,6 @@ export default function ProjectInformation({
           {description && <div className="description">{description}</div>}
         </div>
       </ProjectInformationStyles>
-      <hr />
     </>
   );
 }

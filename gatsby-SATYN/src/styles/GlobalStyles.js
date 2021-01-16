@@ -67,10 +67,16 @@ const GlobalStyles = createGlobalStyle`
   }
 
   hr {
+    display: block;
+    height: 1px;
     border: 0;
-    height: 8px;
-    /* background-image: url(${stripes});
-    background-size: 1500px; */
+    border-top: 1px solid rgba(0,0,0,0.6);
+    margin: 1em 0;
+    padding: 0;
+    width: 100%;
+    @media (max-width: 800px) {
+      width: 100vw;
+    }
   }
 
   img {

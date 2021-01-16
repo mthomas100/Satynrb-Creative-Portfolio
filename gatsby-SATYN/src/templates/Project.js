@@ -13,16 +13,6 @@ const ProjectStyles = styled.div`
     max-width: 800px;
   }
   hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #181717;
-    margin: 1em 0;
-    padding: 0;
-    width: 100%;
-    @media (max-width: 800px) {
-      width: 100vw;
-    }
   }
 `;
 
@@ -40,18 +30,24 @@ const ProjectGridStyles = styled.div`
 
 export default function ProjectTemplate({ data: { project } }) {
   const imageGallery = project.image_Gallery;
+  const { videoURL } = project;
+
+  console.log(imageGallery);
   return (
     <>
       <ProjectStyles>
         <div className="projectWrapper">
           <ProjectInformation project={project} />
-          {project?.videoURL && <Video project={project} />}
-          {imageGallery && (
-            <ProjectGridStyles>
-              {imageGallery.map((image) => (
-                <ProjectPicture image={image} />
-              ))}
-            </ProjectGridStyles>
+          {videoURL && <Video videoURL={videoURL} />}
+          {imageGallery.length > 0 && (
+            <>
+              <hr />
+              <ProjectGridStyles>
+                {imageGallery.map((image) => (
+                  <ProjectPicture image={image} />
+                ))}
+              </ProjectGridStyles>
+            </>
           )}
         </div>
       </ProjectStyles>
