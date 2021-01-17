@@ -48,9 +48,9 @@ export default {
       },
     },
     {
-      name: 'videoURL',
-      title: 'Video Link from Youtube or Vimeo',
-      type: 'video',
+      name: 'videoData',
+      title: 'Video from Youtube or Vimeo',
+      type: 'videoInfo',
     },
     {
       name: 'image_Gallery',

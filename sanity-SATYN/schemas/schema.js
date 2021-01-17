@@ -4,14 +4,14 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 import projects from './projects';
 import picture from './picture';
-import video from './video';
 import about from './about';
 import aboutPicture from './aboutPicture';
+import videoInfo from './videoInfo';
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
   name: 'default',
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([projects, picture, video, about, aboutPicture]),
+  types: schemaTypes.concat([projects, picture, about, aboutPicture, videoInfo]),
 });

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import { auto } from '@popperjs/core';
 import ProjectPicture from '../components/ProjectPicture';
 import ProjectInformation from '../components/ProjectInformation';
 import Video from '../components/Video';
@@ -30,15 +31,14 @@ const ProjectGridStyles = styled.div`
 
 export default function ProjectTemplate({ data: { project } }) {
   const imageGallery = project.image_Gallery;
-  const { videoURL } = project;
-
-  console.log(imageGallery);
   return (
     <>
       <ProjectStyles>
         <div className="projectWrapper">
           <ProjectInformation project={project} />
-          {videoURL && <Video videoURL={videoURL} />}
+          {project.videoData?.videoURL && (
+            <Video videoData={project.videoData} />
+          )}
           {imageGallery.length > 0 && (
             <>
               <hr />
@@ -72,7 +72,10 @@ export const query = graphql`
           }
         }
       }
-      videoURL
+      videoData {
+        videoURL
+        aspectRatio
+      }
       image_Gallery {
         asset {
           _id
