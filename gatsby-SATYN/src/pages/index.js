@@ -5,7 +5,6 @@ import ProjectGrid from '../components/ProjectGrid';
 
 export default function HomePage({ data }) {
   const projects = data.projects.nodes;
-  console.log(projects);
 
   return (
     <>

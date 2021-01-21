@@ -68,9 +68,9 @@ const GlobalStyles = createGlobalStyle`
 
   hr {
     display: block;
-    height: 1px;
+    height: 4px;
     border: 0;
-    border-top: 1px solid rgba(0,0,0,0.6);
+    border-top: 1px solid black;
     margin: 1em 0;
     padding: 0;
     width: 100%;

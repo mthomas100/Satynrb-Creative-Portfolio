@@ -5,12 +5,13 @@ import { auto } from '@popperjs/core';
 import ProjectPicture from '../components/ProjectPicture';
 import ProjectInformation from '../components/ProjectInformation';
 import Video from '../components/Video';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const ProjectStyles = styled.div`
   text-align: center;
   max-width: 100vw;
   .projectWrapper {
-    margin: 2em auto 0 auto;
+    margin: 0em auto 0 auto;
     max-width: 800px;
   }
   hr {
