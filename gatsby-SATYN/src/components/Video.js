@@ -16,7 +16,7 @@ export default function Video({ videoData }) {
       <ResponsiveEmbed
         src={videoHandler(videoURL)}
         allowfullscreen
-        ratio={aspectRatio}
+        ratio={aspectRatio || '16:9'}
       />
     </VideoStyles>
   );
