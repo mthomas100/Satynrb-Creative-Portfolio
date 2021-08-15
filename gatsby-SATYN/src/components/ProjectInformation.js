@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import styled from 'styled-components';
 
 const ProjectInformationStyles = styled.div`
-
   .name {
     font-weight: 300;
     color: rgb(9 9 9 / 85%);
@@ -12,7 +11,7 @@ const ProjectInformationStyles = styled.div`
   }
 
   .subtitle {
-    color: rgb(9 9 9 / 85%)
+    color: rgb(9 9 9 / 85%);
   }
 
   .description {
@@ -26,9 +25,9 @@ export default function ProjectInformation({
 }) {
   return (
     <ProjectInformationStyles>
-          <h1 className="display-4 name">{name}</h1>
-          <p className="lead my-3 subtitle">{subtitle}</p>
-          <p className="lead my-3 description">{description}</p>
+      <h1 className="display-4 name">{name}</h1>
+      <p className="lead my-3 subtitle">{subtitle}</p>
+      <p className="lead my-3 description">{description}</p>
     </ProjectInformationStyles>
   );
 }

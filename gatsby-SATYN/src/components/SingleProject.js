@@ -14,7 +14,7 @@ const ProjectDetailsStyles = styled.div`
   align-items: center;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
+  backdrop-filter: greyscale(4px);
   color: rgba(0, 0, 0, 0.7);
   padding: 0 2em;
   transition: all 0.8s;
