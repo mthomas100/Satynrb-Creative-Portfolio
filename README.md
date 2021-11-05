@@ -8,7 +8,7 @@ Built application using the headless CMS Sanity.io for the backend and Gatsby fo
 [Link to live version of project](http://satynrb.netlify.app/)
 
 ----
-# Technoliges used
+# Technologies used
 
 ### **Gatsby**
 
